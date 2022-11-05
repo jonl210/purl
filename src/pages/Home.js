@@ -1,7 +1,16 @@
+import { useState } from "react";
 import "../assets/home-style.css";
 import logo from "../assets/purl-logo.svg";
 
 const Home = () => {
+  const [link, setLink] = useState("");
+
+  const fetchFromURL = async () => {
+    if (link) {
+    } else {
+    }
+  };
+
   return (
     <div id="container">
       <img src={logo} style={{ width: "8rem" }} alt="" />
@@ -19,9 +28,13 @@ const Home = () => {
           type="url"
           name="link"
           placeholder="Paste URL here"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
           required
         />
-        <button id="generate-btn">Generate</button>
+        <button id="generate-btn" onClick={() => fetchFromURL()}>
+          Generate
+        </button>
       </div>
     </div>
   );
