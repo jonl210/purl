@@ -4,15 +4,14 @@ import logo from "../assets/purl-logo.svg";
 
 const Home = () => {
   const [link, setLink] = useState("");
-  const [error, showErrorMessage] = useState(false);
+  const [error, setError] = useState(false);
   const inputRef = useRef(null);
 
   const fetchLinkMetaData = () => {
     if (isURL(link)) {
-      console.log(link);
-      showErrorMessage(false);
+      setError(false);
     } else {
-      showErrorMessage(true);
+      setError(true);
       inputRef.current.focus();
     }
   };
