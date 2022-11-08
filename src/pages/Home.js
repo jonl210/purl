@@ -7,12 +7,16 @@ const Home = () => {
   const [error, setError] = useState(false);
   const inputRef = useRef(null);
 
-  const fetchLinkMetaData = () => {
-    if (isURL(link)) {
+  const fetchLinkMetaData = async () => {
+    if (!link) {
       setError(false);
-    } else {
-      setError(true);
       inputRef.current.focus();
+    } else {
+      if (isURL(link)) {
+        setError(false);
+      } else {
+        setError(true);
+      }
     }
   };
 
